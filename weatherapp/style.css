@@ -92,6 +92,11 @@ body {
   margin-top: -6px;
 }
 
-.error{
- margin-top: 30px;
+.error {
+  margin-top: 30px;
+}
+
+.weather,
+.error {
+  display: none;
 }

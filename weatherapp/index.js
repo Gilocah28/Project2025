@@ -10,6 +10,7 @@ const weatherCon = document.querySelector(".weather");
 const errorCol = document.querySelector(".error");
 const errorMessage = document.querySelector(".errorMessage");
 
+
 async function callWeather(city) {
   errorCol.style.display = "none";
 
@@ -62,7 +63,6 @@ async function callWeather(city) {
       default:
         weatherImage.src = "";
     }
-
   } else {
     weatherCon.style.display = "none";
     errorCol.style.display = "block";
@@ -70,7 +70,6 @@ async function callWeather(city) {
   }
 }
 btnSearch.addEventListener("click", search);
-callWeather("Antipolo");
 
 function search() {
   const inputValue = inputSearch.value;

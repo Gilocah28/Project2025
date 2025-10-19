@@ -62,6 +62,7 @@ async function callWeather(city) {
       default:
         weatherImage.src = "";
     }
+    
   } else {
     weatherCon.style.display = "none";
     errorCol.style.display = "block";

@@ -10,15 +10,19 @@ const weatherCon = document.querySelector(".weather");
 const errorCol = document.querySelector(".error");
 const errorMessage = document.querySelector(".errorMessage");
 
-
 async function callWeather(city) {
-  errorCol.style.display = "none";
-
   if (city) {
     weatherCon.style.display = "block";
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     );
+
+    if (response.status === 404) {
+      errorMessage.textContent = "Invalid City";
+      weatherCon.style.display = "none";
+      errorCol.style.display = "block";
+      return;
+    }
 
     const data = await response.json();
     cityName.textContent = data.name;
@@ -66,7 +70,7 @@ async function callWeather(city) {
   } else {
     weatherCon.style.display = "none";
     errorCol.style.display = "block";
-    errorMessage.textContent = "No City enter or invalid city";
+    errorMessage.textContent = "No City enter";
   }
 }
 btnSearch.addEventListener("click", search);

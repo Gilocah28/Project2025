@@ -21,7 +21,7 @@ async function callWeather(city) {
 
     const data = await response.json();
     cityName.textContent = data.name;
-    tempData.textContent = Math.floor(data.main.temp) + "°c";
+    tempData.textContent = Math.floor(data.main.temp) + "°C";
     humidityData.textContent = data.main.humidity + "%";
     windData.textContent = data.wind.speed + " " + "km/h";
 
@@ -62,7 +62,7 @@ async function callWeather(city) {
       default:
         weatherImage.src = "";
     }
-    
+
   } else {
     weatherCon.style.display = "none";
     errorCol.style.display = "block";
@@ -70,7 +70,7 @@ async function callWeather(city) {
   }
 }
 btnSearch.addEventListener("click", search);
-callWeather();
+callWeather("Antipolo");
 
 function search() {
   const inputValue = inputSearch.value;
